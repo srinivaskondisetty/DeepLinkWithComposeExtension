@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Configure</title>
+</head>
+<body>
+    <br />
+    <div class="form-group">
+        <div class="form-group">
+            <input class="form-control" type="text" id="userName" name="username" placeholder="Enter Tab Name" />
+        </div>
+        <div class="form-group">
+            <button id="register" class="btn" onclick="onClick()">Set</button>
+        </div>
+    </div>
+    <!-- Bootstrap CDN for styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--This is the -->
+    <script src="https://statics.teams.microsoft.com/sdk/v1.0/js/MicrosoftTeams.min.js"></script>
+    <script type="text/javascript">
+
+        // you are supposed to host the url on a secure HTTPS endpoint, this will ensure that your page permits it to be iframed
+        microsoftTeams.initialize();
+
+        // This is the success handler after clicking on the save button
+        microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+            microsoftTeams.settings.setSettings({
+                // for identifying the tab
+                entityId: "TabLink",
+                contentUrl: "https://322e93cb.ngrok.io/tab",
+                // This is the set the entered tab name
+                suggestedDisplayName: document.getElementById("userName").value,
+                websiteUrl: "https://322e93cb.ngrok.io"
+            });
+            saveEvent.notifySuccess();
+        });
+
+        function onClick() {
+            // This will enable the save button after configuring your settings
+            microsoftTeams.settings.setValidityState(true);
+        }
+    </script>
+</body>
+</html>

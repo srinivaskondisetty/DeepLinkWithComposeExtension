@@ -1,0 +1,101 @@
+{
+  "$schema": "https://statics.teams.microsoft.com/sdk/v1.0/manifest/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.0",
+  "version": "1.0",
+  "id": "0e123677-a5d9-4efc-8800-ef26bff77c66",
+  "packageName": "com.skype.teams.samples.sampleapp",
+  "developer": {
+    "name": "Srinivas Naidu",
+    "websiteUrl": "https://322e93cb.ngrok.io",
+    "privacyUrl": "https://322e93cb.ngrok.io/privacy",
+    "termsOfUseUrl": "https://322e93cb.ngrok.io/termsofuse"
+  },
+  "name": {
+    "short": "Deep Link New",
+    "full": "Deep Link New"
+  },
+  "description": {
+    "short": "Generate deeplink with compose extension",
+    "full": "Generate deeplink with compose extension"
+  },
+  "icons": {
+    "outline": "botimage.png",
+    "color": "botimage.png"
+  },
+  "accentColor": "#3F487F",
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://322e93cb.ngrok.io/configure",
+      "canUpdateConfiguration": false,
+      "scopes": [
+        "team"
+      ]
+    }
+  ],
+  "bots": [
+    {
+      "botId": "0e123677-a5d9-4efc-8800-ef26bff77c66",
+      "commandLists": [
+        {
+          "commands": [
+            {
+              "title": "Help",
+              "description": "Help"
+            }
+          ],
+          "scopes": [
+            "personal",
+            "team"
+          ]                    
+        }        
+      ],
+      "isNotificationOnly": false,
+      "scopes": [
+        "personal",
+        "team"
+      ]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "staticTab",
+      "contentUrl": "https://322e93cb.ngrok.io/statictab",
+      "name": "Static Tab",
+      "scopes": [
+        "personal"
+      ],
+      "websiteUrl": "https://322e93cb.ngrok.io/"
+    }
+  ],
+  "composeExtensions": [
+    {
+      "botId": "0e123677-a5d9-4efc-8800-ef26bff77c66",
+      "scopes": [
+        "team",
+        "personal"
+      ],
+      "commands": [
+        {
+          "id": "getdeeplink",
+          "description": "Genereate a deeplink for the tab",
+          "title": "Get deep link",
+          "initialRun": true,
+          "parameters": [
+            {
+              "title": "type",
+              "name": "type",
+              "description": "Type of scope"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "322e93cb.ngrok.io"
+  ]
+}
